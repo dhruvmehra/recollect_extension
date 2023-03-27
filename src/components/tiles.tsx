@@ -1,11 +1,10 @@
-import { ChakraProvider } from "@chakra-ui/react"
-
-function Tiles({ Component, pageProps }) {
+export default function Tiles() {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <div>
+      <div>
+        <h4>Article</h4>
+        <p>Article summary</p>
+      </div>
+    </div>
   )
 }
-
-export default Tiles

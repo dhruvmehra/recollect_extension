@@ -6,7 +6,7 @@ import { useFirebase } from "~firebase/hook"
 
 const srcList = Array.from({
   length: 3
-}).map((_, i) => chrome.runtime.getURL(`assets/img${i}.png`))
+}).map((_, i) => chrome.runtime.getURL(`assets/pic${i}.png`))
 
 export function Main() {
   const { user, isLoading, onLogin, onLogout } = useFirebase()
@@ -99,15 +99,24 @@ export function Main() {
               </button>
             </p>
 
-            <p>Your list:</p>
+            <p>Saved items:</p>
             {srcList.map((src, i) => (
-              <img
-                height="300"
-                width="300"
-                key={i}
-                src={src}
-                style={{ width: 44, height: 44 }}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  fontSize: ".8rem"
+                }}>
+                <img
+                  key={i}
+                  src={src}
+                  style={{ width: 100, height: 60, padding: 8 }}
+                />
+                <div>
+                  <h4>Article {i}</h4>
+                  <p>Article summary</p>
+                </div>
+              </div>
             ))}
           </div>
         ) : (
