@@ -1,6 +1,6 @@
 {
-  "name": "bisket-chrome-extension",
-  "displayName": "Bisket Chrome extension",
+  "name": "recollect",
+  "displayName": "Recollect",
   "version": "0.0.1",
   "description": "A basic Plasmo extension.",
   "author": "dmk",
@@ -18,12 +18,19 @@
     "@chakra-ui/react": "^2.5.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@floating-ui/dom": "^1.2.5",
+    "@popperjs/core": "^2.11.7",
+    "buffer": "6.0.3",
+    "events": "3.3.0",
     "firebase": "9.17.2",
     "framer-motion": "^10.9.1",
     "next": "13.2.4",
     "plasmo": "0.67.4",
+    "process": "0.11.10",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-tiny-popover": "^7.2.4",
+    "stream-browserify": "3.0.0"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.3",
@@ -43,7 +50,10 @@
     ],
     "permissions": [
       "tabs",
-      "identity"
+      "identity",
+      "activeTab",
+      "scripting",
+      "contextMenus"
     ],
     "web_accessible_resources": [
       {
@@ -51,17 +61,15 @@
           "_favicon/*"
         ],
         "matches": [
-          "http://localhost:3000/*",
-          "https://*.plasmo.com/*"
+          "<all_urls>"
         ]
       },
       {
         "resources": [
-          "assets/pic*.png",
-          "assets/img*.png"
+          "assets/*"
         ],
         "matches": [
-          "https://www.plasmo.com/*"
+          "<all_urls>"
         ]
       }
     ],
